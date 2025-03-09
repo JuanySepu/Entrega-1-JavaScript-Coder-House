@@ -1,24 +1,25 @@
-// Definimos productos disponibles
+// Definimos los productos disponibles
 const productos = [
-    {id:1, nombre:"Camisa", precio:2000},
-    {id:2, nombre:"Pantalón", precio:3500},
-    {id:3, nombre:"Zapatos", precio:5000}
+    { id: 1, nombre: "Camisa", precio: 2000 },
+    { id: 2, nombre: "Pantalón", precio: 3500 },
+    { id: 3, nombre: "Zapatos", precio: 5000 }
 ];
 
 // Carrito de compras
 let carrito = [];
 
-//Elementos del DOM
+// Elementos del DOM
 const productosDiv = document.getElementById("productos");
 const listaCarrito = document.getElementById("lista-carrito");
 const totalSpan = document.getElementById("total");
 
-//Función para mostrar los productos en la tienda
+// Función para mostrar los productos en la tienda
 function mostrarProductos() {
     productos.forEach(producto => {
         const div = document.createElement("div");
         div.classList.add("producto");
-        div.innerHTML = '${producto.nombre} - $${producto.precio}<button onclick="agregarAlCarrito(${producto.id})">Agregar</button>';
+        div.innerHTML = `${producto.nombre} - $${producto.precio} 
+                         <button onclick="agregarAlCarrito(${producto.id})">Agregar</button>`;
         productosDiv.appendChild(div);
     });
 }
@@ -38,7 +39,8 @@ function actualizarCarrito() {
     carrito.forEach((producto, index) => {
         total += producto.precio;
         const li = document.createElement("li");
-        li.innerHTML = '${producto.nombre} - $${producto.precio}<button onclick="eliminarDelCarrito(${index})">Eliminar</button>';
+        li.innerHTML = `${producto.nombre} - $${producto.precio} 
+                        <button onclick="eliminarDelCarrito(${index})">Eliminar</button>`;
         listaCarrito.appendChild(li);
     });
 
@@ -59,4 +61,3 @@ function vaciarCarrito() {
 
 // Inicializar la tienda
 mostrarProductos();
-
