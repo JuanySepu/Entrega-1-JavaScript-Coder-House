@@ -19,7 +19,7 @@ function mostrarProductos() {
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `${producto.nombre} - $${producto.precio} 
-                         <button onclick="agregarAlCarrito(${producto.id})">Agregar</button>`;
+                        <button onclick="agregarAlCarrito(${producto.id})">Agregar</button>`;
         productosDiv.appendChild(div);
     });
 }
